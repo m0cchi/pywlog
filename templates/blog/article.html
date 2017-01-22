@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static "article/article.css" %}" />
+
+<div id="article-head">
+  <p>
+    title: {{ article.title }}
+  </p>
+  <p>
+    <span>
+      create date: {{ article.create_date }}, create user: {{ article.create_user }}
+    </span>
+  </p>
+</div>
+<p id="body">
+  {{ article.body }}
+</p>
+<p id="tag">
+  tags: {{ tags }}
+</p>
+{% endblock %}
