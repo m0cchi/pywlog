@@ -2,6 +2,8 @@
 {% load static %}
 
 {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static "article/article-list.css" %}" />
+<link rel="stylesheet" type="text/css" href="{% static "common/common.css" %}" />
 <div class="ui center aligned grid">
   {% for article in articles %}
   <div class="article-head common-width ui padded segment">
@@ -39,6 +41,4 @@
     {% endif %}
   </div>
 </div>
-<link rel="stylesheet" type="text/css" href="{% static "article/article-list.css" %}" />
-<link rel="stylesheet" type="text/css" href="{% static "common/common.css" %}" />
 {% endblock %}
