@@ -1,3 +1,11 @@
-#article-head{
-    color: red;
+#article-head {
+    
+}
+
+#content {
+    width: 80%;
+}
+
+#article-head > .title {
+    font-size: 24px;
 }

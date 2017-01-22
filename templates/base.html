@@ -5,8 +5,21 @@
     <title>{{title}}</title>
   </head>
   <body>
-    <div>
+
+    <div class="ui menu">
+      <div class="header item">
+        blog.m0cchi
+      </div>
+      <a class="item" href="/blog">
+        blog
+      </a>
+    </div>
+    <div class="ui center aligned grid">
       {% block content %}{% endblock %}
     </div>
+    {% load static %}
+    <script src="{% static "bower_components/jquery/dist/jquery.min.js" %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static "bower_components/semantic/dist/semantic.min.css" %}" />
+    <script src="{% static "bower_components/semantic/dist/semantic.min.js" %}"></script>
   </body>
 </html>

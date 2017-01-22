@@ -3,21 +3,25 @@
 {% block content %}
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static "article/article.css" %}" />
+<link rel="stylesheet" type="text/css" href="{% static "bower_components/highlightjs/styles/github.css" %}" />
+<script src="{% static "bower_components/highlightjs/highlight.pack.js" %}"></script>
 
-<div id="article-head">
-  <p>
-    title: {{ article.title }}
+<div id="content" class="ui padded segment">
+  <div id="article-head">
+    <p class="title">
+      title: {{ article.title }}
+    </p>
+    <p>
+      <span>
+        create date: {{ article.create_date }}, create user: {{ article.create_user }}
+      </span>
+    </p>
+  </div>
+  <p id="body">
+    {{ article.body }}
   </p>
-  <p>
-    <span>
-      create date: {{ article.create_date }}, create user: {{ article.create_user }}
-    </span>
+  <p id="tag">
+    tags: {{ tags }}
   </p>
 </div>
-<p id="body">
-  {{ article.body }}
-</p>
-<p id="tag">
-  tags: {{ tags }}
-</p>
 {% endblock %}

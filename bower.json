@@ -1,0 +1,22 @@
+{
+  "name": "pywlog",
+  "authors": [
+    "m0cchi <boom.boom.planet@gmail.com>"
+  ],
+  "description": "log system",
+  "main": "template/base.html",
+  "license": "MIT",
+  "homepage": "https://m0cchi.net",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "semantic": "semantic-ui#^2.2.7",
+    "highlightjs": "^9.9.0"
+  }
+}
