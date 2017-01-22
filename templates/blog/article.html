@@ -1,27 +1,32 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% load markdown %}
 {% load static %}
+<div class="ui center aligned grid">
+  <div  id="content" class="common-width ui padded segment">
+    <div class="article-head">
+      <p class="title">
+        title: {{ article.title }}
+      </p>
+      <p>
+        <span>
+          create date: {{ article.create_date }}, create user: {{ article.create_user }}
+        </span>
+      </p>
+    </div>
+    <p id="body">
+      {{ article.body|gfm|safe }}
+    </p>
+    <p id="tag">
+      tags: {{ tags }}
+    </p>
+  </div>
+</div>
+<link rel="stylesheet" type="text/css" href="{% static "common/common.css" %}" />
 <link rel="stylesheet" type="text/css" href="{% static "article/article.css" %}" />
 <link rel="stylesheet" type="text/css" href="{% static "bower_components/highlightjs/styles/github.css" %}" />
 <script src="{% static "bower_components/highlightjs/highlight.pack.js" %}"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
-<div id="content" class="ui padded segment">
-  <div id="article-head">
-    <p class="title">
-      title: {{ article.title }}
-    </p>
-    <p>
-      <span>
-        create date: {{ article.create_date }}, create user: {{ article.create_user }}
-      </span>
-    </p>
-  </div>
-  <p id="body">
-    {{ article.body }}
-  </p>
-  <p id="tag">
-    tags: {{ tags }}
-  </p>
-</div>
 {% endblock %}

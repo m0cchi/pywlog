@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="ui center aligned grid">
+  {% for article in articles %}
+  <div class="article-head common-width ui padded segment">
+    <p class="title">
+      <a href="/blog/article?article_id={{article.id}}">
+        title: {{ article.title }}
+      </a>
+    </p>
+    <p>
+      <span>
+        create date: {{ article.create_date }}, create user: {{ article.create_user }}
+      </span>
+    </p>
+  </div>
+  {% endfor %}
+</div>
+
+<div class="ui center aligned grid">
+  <div class="common-width ui borderless menu">
+    {% if page.has_previous %}
+    prev
+    {% endif %}
+    
+    {% for num in page.paginator.page_range%}
+    {{ num }}
+    {% endfor %}
+    
+    {% if page.has_next %}
+    prev
+    {% endif %}
+  </div>
+</div>
+<link rel="stylesheet" type="text/css" href="{% static "article/article-list.css" %}" />
+<link rel="stylesheet" type="text/css" href="{% static "common/common.css" %}" />
+{% endblock %}

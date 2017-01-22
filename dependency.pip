@@ -1,2 +1,4 @@
 Django==1.10.5
+django-markdown==0.8.4
+Markdown==2.6.7
 pytz==2016.10

@@ -1,11 +1,7 @@
-#article-head {
-    
-}
-
 #content {
-    width: 80%;
+    margin-top: 50px;
 }
 
-#article-head > .title {
+.article-head > .title {
     font-size: 24px;
 }
