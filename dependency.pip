@@ -1,4 +1,4 @@
 Django==1.10.5
-django-markdown==0.8.4
 Markdown==2.6.7
+py-gfm==0.1.3
 pytz==2016.10
