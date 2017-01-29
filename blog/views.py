@@ -4,6 +4,8 @@ from django.template.loader import render_to_string
 from .models import Article, TagMapper
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
+import os
 
 def show_article(request):
     article_id = request.GET['article_id'] if 'article_id' in request.GET else None
@@ -37,4 +39,13 @@ def show_articles(request):
 
     return HttpResponse(rendered)
 
-        
+@login_required
+def export_db(request):
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    sqlite = os.path.join(root, 'db.sqlite3') # sqlite
+    file = open(sqlite, 'rb')
+    response = HttpResponse(file)
+    response['content_type'] = 'application/x-sqlite3'
+    response['Content-Disposition'] = 'attachment; filename=export.sqlite3'
+    return response
+    
