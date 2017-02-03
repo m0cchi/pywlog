@@ -15,6 +15,7 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+SITE_NAME = 'pywblog' if os.environ.get('SITE_NAME') is None else os.environ.get('SITE_NAME')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -26,7 +27,6 @@ SECRET_KEY = '6_8&n66@f9%8mqkxcsk#pvh=!7wf5hdl%kf&meg9dtp3v)_jrn'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
 
 # Application definition
 
@@ -71,8 +71,8 @@ TEMPLATES = [
 
 SETTINGS_EXPORT = [
     'DEBUG',
+    'SITE_NAME',
 ]
-
 
 WSGI_APPLICATION = 'pywlog.wsgi.application'
 
