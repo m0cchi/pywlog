@@ -1,6 +1,5 @@
 from django.http import HttpResponse
-from django.template.loader import render_to_string
-# from django.shortcuts import render
+from django.shortcuts import render
 from .models import Article, TagMapper
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.conf import settings
@@ -19,9 +18,11 @@ def show_article(request):
         # render 404
         pass
 
-    rendered = render_to_string('blog/article.html', {'article': article,
-                                                      'tags': ', '.join(map((lambda mapper: mapper.tag.name),
-                                                                            mappers))})
+    rendered = render(request,
+                      'blog/article.html',
+                      {'article': article,
+                       'tags': ', '.join(map((lambda mapper: mapper.tag.name),
+                                             mappers))})
     return HttpResponse(rendered)
 
 def show_articles(request):
@@ -33,9 +34,10 @@ def show_articles(request):
     except (EmptyPage, PageNotAnInteger):
         page = paginator.page(1)
 
-    rendered = render_to_string('blog/article-list.html',
-                                {'articles': page.object_list,
-                                 'page': page})
+    rendered = render(request,
+                      'blog/article-list.html',
+                      {'articles': page.object_list,
+                       'page': page})
 
     return HttpResponse(rendered)
 

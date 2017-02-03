@@ -1,4 +1,6 @@
 Django==1.10.5
+django-settings-export==1.2.1
 Markdown==2.6.7
 py-gfm==0.1.3
 pytz==2016.10
+uWSGI==2.0.14
