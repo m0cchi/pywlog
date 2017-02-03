@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import Article, TagMapper
+from blog.models import Article, TagMapper
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
@@ -19,7 +19,7 @@ def show_article(request):
         pass
 
     rendered = render(request,
-                      'blog/article.html',
+                      'blog/show/article.html',
                       {'article': article,
                        'tags': ', '.join(map((lambda mapper: mapper.tag.name),
                                              mappers))})
@@ -35,7 +35,7 @@ def show_articles(request):
         page = paginator.page(1)
 
     rendered = render(request,
-                      'blog/article-list.html',
+                      'blog/show/article-list.html',
                       {'articles': page.object_list,
                        'page': page})
 
