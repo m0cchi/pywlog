@@ -2,6 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
+    {% if settings.DEBUG %}
+    <meta name="robots" content="noindex">
+    {% endif %}
     <title>{{title}}</title>
     {% load static %}
     <script src="{% static "bower_components/jquery/dist/jquery.min.js" %}"></script>
@@ -9,10 +12,9 @@
     <script src="{% static "bower_components/semantic/dist/semantic.min.js" %}"></script>
   </head>
   <body>
-    
     <div class="ui menu">
       <div class="header item">
-        blog.m0cchi
+        {{ settings.SITE_NAME }}
       </div>
       <a class="item" href="/blog?page_id=1">
         blog
